@@ -1,70 +1,258 @@
-# Getting Started with Create React App
+# 📱 Ravi Mobile Gallery
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div align="center">
 
-## Available Scripts
+![Ravi Mobile Gallery](https://img.shields.io/badge/Ravi%20Mobile%20Gallery-2nd%20Hand%20Phones-1A3D63?style=for-the-badge&logo=android&logoColor=white)
+![React](https://img.shields.io/badge/React-18.2-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![Node.js](https://img.shields.io/badge/Node.js-Express-339933?style=for-the-badge&logo=node.js&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
+![Claude AI](https://img.shields.io/badge/Claude-AI%20Powered-D97706?style=for-the-badge&logo=anthropic&logoColor=white)
 
-In the project directory, you can run:
+**A production-ready full-stack web app built for a real 2nd hand mobile phone shop in Badnapur, Maharashtra 🇮🇳**
 
-### `npm start`
+[🌐 Live Demo](#) • [📂 GitHub](https://github.com/niyati06-web/ravi-mobile-gallery) • [📱 WhatsApp Shop](#)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+</div>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## ✨ What is this?
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Ravi Mobile Gallery** is a fully functional web application built for a real local mobile phone shop. Customers can browse, search, and contact the shop directly via WhatsApp — while the shop owner manages all listings through a secure admin panel.
 
-### `npm run build`
+> 🏪 Built for a real business. Used by real customers. Deployed in production.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🎯 Features
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 👤 User Side
+| Feature | Description |
+|--------|-------------|
+| 🔐 Auth | Email/Password signup + Google OAuth login |
+| 🔍 Smart Search | Voice-powered search — just speak your query |
+| 🤖 AI Phone Finder | Describe your need, Claude AI suggests best matches |
+| 📸 Photo Gallery | Full-screen swipeable image gallery + video preview |
+| ⭐ Star Grading | Filter phones by condition & star rating |
+| 💬 WhatsApp | One-click direct contact with shop owner |
+| 🔑 Forgot Password | Real email reset link via Gmail |
+| 🖱️ Cursor Effects | Subtle trail animation for desktop users |
 
-### `npm run eject`
+### 🔐 Admin Side
+| Feature | Description |
+|--------|-------------|
+| 🛡️ Secure Login | JWT-based auth — hidden from customer view |
+| ➕ Add Listings | Add phones with photos (5 max) + video (50MB) |
+| 🎙️ Voice Input | Speak phone name & price — auto-fills form |
+| ✨ AI Price | Claude AI suggests fair market resale price |
+| ✅ Mark Sold | Remove sold phones from customer view |
+| 🗑️ Delete | Remove listings + auto-deletes uploaded files |
+| 📊 Dashboard | Live stats — Listed, Sold, Inquiries |
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🛠️ Tech Stack
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+Frontend          Backend           Database          AI & Services
+─────────         ───────           ────────          ─────────────
+React 18          Node.js           MongoDB Atlas     Claude API (Anthropic)
+React Router 6    Express.js        Mongoose          Google OAuth 2.0
+Context API       JWT Auth          GridFS (files)    Nodemailer (Gmail)
+Web Speech API    bcrypt                              Multer (uploads)
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## 🏗️ Project Structure
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+ravi-mobile-gallery/
+│
+├── src/                          # React Frontend
+│   ├── components/
+│   │   ├── Navbar.js             # Sliding side menu + user avatar
+│   │   ├── PhoneCard.js          # Card with gallery modal
+│   │   ├── FilterBar.js          # Brand/price/rating filters
+│   │   ├── AIRequirementBox.js   # AI phone suggester
+│   │   ├── BottomNav.js          # Floating pill navigation
+│   │   ├── ProtectedRoute.js     # Admin route guard
+│   │   └── UserRoute.js          # User route guard
+│   │
+│   ├── pages/
+│   │   ├── AuthPage.js           # Login + Signup + Google
+│   │   ├── BrowsePage.js         # Main phone listing page
+│   │   ├── LoginPage.js          # Admin login
+│   │   ├── ResetPasswordPage.js  # Password reset
+│   │   └── admin/
+│   │       ├── AdminDashboard.js # Stats + tabs
+│   │       ├── AddPhone.js       # Add listing + media upload
+│   │       ├── ManageListings.js # Edit/delete/sold
+│   │       └── AITools.js        # Price advisor + chatbot
+│   │
+│   ├── context/
+│   │   └── AuthContext.js        # Global auth state
+│   │
+│   └── App.js                    # Routes setup
+│
+└── backend/                      # Node.js Backend
+    ├── models/
+    │   ├── Phone.js              # Phone schema
+    │   └── User.js               # User schema
+    │
+    ├── routes/
+    │   ├── phones.js             # CRUD + file upload
+    │   ├── auth.js               # Admin login
+    │   ├── users.js              # Signup/login/Google/forgot pw
+    │   └── ai.js                 # Claude AI endpoints
+    │
+    ├── middleware/
+    │   └── authMiddleware.js     # JWT verification
+    │
+    └── server.js                 # Express app entry point
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## ⚙️ Setup & Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Prerequisites
+- Node.js v18+
+- MongoDB Atlas account
+- Anthropic API key
+- Gmail account (for password reset)
 
-### Analyzing the Bundle Size
+### 1️⃣ Clone the repo
+```bash
+git clone https://github.com/niyati06-web/ravi-mobile-gallery.git
+cd ravi-mobile-gallery
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 2️⃣ Frontend setup
+```bash
+npm install
+```
 
-### Making a Progressive Web App
+### 3️⃣ Backend setup
+```bash
+cd backend
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 4️⃣ Environment variables
+Create `backend/.env`:
+```env
+# MongoDB
+MONGO_URI=mongodb+srv://user:pass@cluster.mongodb.net/ravi-mobile-gallery
 
-### Advanced Configuration
+# Admin credentials
+ADMIN_USERNAME=ravi_admin
+ADMIN_PASSWORD_HASH=your_bcrypt_hash   # node generateHash.js yourpassword
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+# JWT
+JWT_SECRET=your_long_random_secret_key
 
-### Deployment
+# Anthropic AI
+ANTHROPIC_API_KEY=sk-ant-your-key-here
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+# Gmail (for password reset)
+GMAIL_USER=your@gmail.com
+GMAIL_APP_PASSWORD=your_app_password
 
-### `npm run build` fails to minify
+# Shop WhatsApp
+SHOP_WHATSAPP=919876543210
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Frontend URL
+CLIENT_URL=http://localhost:3000
+
+# Google OAuth (optional)
+GOOGLE_CLIENT_ID=your_google_client_id
+```
+
+### 5️⃣ Generate admin password hash
+```bash
+cd backend
+node generateHash.js yourpassword
+# Copy the hash → paste in .env as ADMIN_PASSWORD_HASH
+```
+
+### 6️⃣ Run the app
+```bash
+# Terminal 1 — Backend
+cd backend
+node server.js
+
+# Terminal 2 — Frontend
+cd ..
+npm start
+```
+
+### 7️⃣ Access
+| URL | Who |
+|-----|-----|
+| `localhost:3000` | Customers — browse phones |
+| `localhost:3000/admin/login` | Shop owner — manage listings |
+
+---
+
+## 🔒 Security Features
+
+- ✅ JWT tokens with 8h expiry (admin) / 7d (users)
+- ✅ bcrypt password hashing (10 salt rounds)
+- ✅ Role-based access control (user vs admin)
+- ✅ Admin routes completely hidden from users
+- ✅ Session storage (cleared on tab close)
+- ✅ File type validation on upload
+- ✅ `.env` never committed to Git
+
+---
+
+## 📸 Screenshots
+
+> Browse Page • Admin Panel • Gallery Modal • AI Suggestions
+
+*Coming soon...*
+
+---
+
+## 🚀 Deployment
+
+| Service | Purpose | Cost |
+|---------|---------|------|
+| Vercel | Frontend hosting | Free |
+| Render | Backend hosting | Free |
+| MongoDB Atlas | Database | Free |
+| Cloudinary | Media storage | Free |
+
+---
+
+## 💡 What I Learned
+
+- Building a **full-stack MERN application** from scratch
+- **JWT authentication** with role-based access control
+- **File uploads** with Multer (images + video)
+- Integrating **Claude AI API** for smart suggestions
+- **Web Speech API** for voice search
+- **Google OAuth 2.0** integration
+- **Nodemailer** for transactional emails
+- Deploying a full-stack app to production
+
+---
+
+## 👩‍💻 Developer
+
+**Niyati Motwani**
+
+Built as a real-world project for **Ravi Mobile Gallery**, Badnapur, Maharashtra.
+
+> *"Real client. Real problem. Real solution."*
+
+---
+
+<div align="center">
+
+Made with ❤️ using React + Node.js + MongoDB + Claude AI
+
+⭐ Star this repo if you found it helpful!
+
+</div>
