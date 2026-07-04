@@ -20,7 +20,7 @@ export default function AIRequirementBox({ phones }) {
     if (!q.trim()) return;
     setLoading(true); setSuggestions([]);
     try {
-      const res  = await fetch("/api/ai/suggest", {
+      const res  = await fetch(`${process.env.REACT_APP_BACKEND_URL || "http://localhost:5000"}/api/ai/suggest`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ requirement: q, phones }),

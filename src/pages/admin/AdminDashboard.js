@@ -14,7 +14,7 @@ export default function AdminDashboard() {
   const [stats, setStats] = useState({ listed: 0, sold: 0, inquiries: 0 });
 
   useEffect(() => {
-    fetch("/api/phones/stats", {
+    fetch(`${process.env.REACT_APP_BACKEND_URL || "http://localhost:5000"}/api/phones/stats`, {
       headers: { Authorization: `Bearer ${getToken()}` },
     })
       .then((r) => r.json())
