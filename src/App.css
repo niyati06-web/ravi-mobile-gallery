@@ -2,10 +2,11 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { font-size: 14px; -webkit-text-size-adjust: 100%; }
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background: #F9FAFB;
   color: #111827;
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* ─── COLOR TOKENS ─── */
@@ -46,9 +47,9 @@ body {
 }
 
 /* ─── TYPOGRAPHY ─── */
-h1 { font-size: 1.25rem; font-weight: 600; }
-h2 { font-size: 1rem;    font-weight: 500; }
-h3 { font-size: 0.9rem;  font-weight: 500; }
+h1 { font-size: 1.2rem; font-weight: 700; }
+h2 { font-size: 1rem;   font-weight: 600; }
+h3 { font-size: 0.9rem; font-weight: 600; }
 p  { line-height: 1.6; }
 
 /* ─── LAYOUT ─── */
@@ -64,34 +65,25 @@ p  { line-height: 1.6; }
 .btn-primary {
   display: flex; align-items: center; justify-content: center; gap: 6px;
   width: 100%; height: 40px;
-  background: var(--brand);
+  background: var(--brand-dark);
   color: #fff;
   border: none;
   border-radius: var(--radius);
-  font-size: 0.95rem;
-  font-weight: 500;
+  font-size: 0.9rem;
+  font-weight: 600;
   cursor: pointer;
+  font-family: 'Poppins', sans-serif;
   transition: background 0.15s;
+  letter-spacing: 0.2px;
 }
-.btn-primary:hover { background: var(--brand-dark); }
-
-.btn-outline {
-  display: flex; align-items: center; justify-content: center; gap: 6px;
-  padding: 7px 14px;
-  background: none;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  font-size: 0.85rem;
-  color: var(--text2);
-  cursor: pointer;
-}
-.btn-outline:hover { background: var(--bg); }
+.btn-primary:hover { background: #061422; }
 
 /* ─── FORM FIELDS ─── */
 .field { margin-bottom: 12px; }
 .field label {
   display: block;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
+  font-weight: 500;
   color: var(--text2);
   margin-bottom: 4px;
 }
@@ -103,30 +95,23 @@ p  { line-height: 1.6; }
   height: 38px;
   border: 1px solid var(--border2);
   border-radius: var(--radius);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--text);
   background: var(--white);
   outline: none;
   transition: border-color 0.15s;
+  font-family: 'Poppins', sans-serif;
 }
 .field input:focus,
 .field select:focus,
 .field textarea:focus { border-color: var(--brand); }
 .field textarea { height: auto; padding: 10px 11px; resize: vertical; }
 
-/* ─── CARDS ─── */
-.card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-}
-
 /* ─── BADGE ─── */
 .badge {
   display: inline-block;
-  font-size: 0.7rem;
-  font-weight: 500;
+  font-size: 0.68rem;
+  font-weight: 600;
   padding: 2px 8px;
   border-radius: 20px;
 }
@@ -135,19 +120,14 @@ p  { line-height: 1.6; }
 .badge-fair   { background: var(--amber-light);  color: var(--amber);  }
 .badge-parts  { background: var(--red-light);    color: var(--red);    }
 
-/* ─── STARS ─── */
-.stars { color: var(--amber); font-size: 0.8rem; letter-spacing: -1px; }
-
 /* ─── LOADING ─── */
 .loading-screen {
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
   background: var(--bg);
 }
 .spinner {
-  width: 28px; height: 28px;
+  width: 26px; height: 26px;
   border: 3px solid var(--border);
   border-top-color: var(--brand);
   border-radius: 50%;
@@ -155,18 +135,12 @@ p  { line-height: 1.6; }
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* ─── BOTTOM NAV SPACING ─── */
-.page-content { padding-bottom: 68px; }
+/* ─── SPACING ─── */
+.page-content { padding-bottom: 72px; }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 
 /* ─── SCROLLBAR ─── */
-::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar { width: 3px; height: 3px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 4px; }
-
-/* ─── UTILITY ─── */
-.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.flex-center { display: flex; align-items: center; justify-content: center; }
-.text-muted { color: var(--text3); }
-.text-brand { color: var(--brand); }
-.mt-auto { margin-top: auto; }
-.w-full { width: 100%; }
+::-webkit-scrollbar-thumb:hover { background: var(--brand-border); }
