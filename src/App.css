@@ -1,146 +1,18 @@
-/* ─── RESET ─── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { font-size: 14px; -webkit-text-size-adjust: 100%; }
-body {
-  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: #F9FAFB;
-  color: #111827;
-  min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
+/* ─── DESKTOP RESPONSIVE ─── */
+@media (min-width: 768px) {
+  .page-wrapper {
+    max-width: 100%;
+  }
+  body {
+    background: #F0F4FF;
+  }
 }
 
-/* ─── COLOR TOKENS ─── */
-:root {
-  --brand:        #1A3D63;
-  --brand-light:  #EAF1F8;
-  --brand-border: #B3CFE5;
-  --brand-dark:   #0A1931;
-
-  --green:        #16a34a;
-  --green-light:  #F0FDF4;
-  --green-border: #BBF7D0;
-
-  --amber:        #d97706;
-  --amber-light:  #FFFBEB;
-
-  --purple:       #7c3aed;
-  --purple-light: #F5F3FF;
-  --purple-border:#DDD6FE;
-
-  --red:          #dc2626;
-  --red-light:    #FEF2F2;
-  --red-border:   #FECACA;
-
-  --text:         #111827;
-  --text2:        #6b7280;
-  --text3:        #9ca3af;
-
-  --bg:           #F9FAFB;
-  --white:        #ffffff;
-  --border:       #E5E7EB;
-  --border2:      #D1D5DB;
-
-  --radius:       8px;
-  --radius-lg:    12px;
-  --shadow-sm:    0 1px 3px rgba(0,0,0,0.08);
-  --shadow:       0 4px 12px rgba(0,0,0,0.1);
+@media (min-width: 1024px) {
+  .page-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    box-shadow: 0 0 40px rgba(0,0,0,0.08);
+    background: #fff;
+  }
 }
-
-/* ─── TYPOGRAPHY ─── */
-h1 { font-size: 1.2rem; font-weight: 700; }
-h2 { font-size: 1rem;   font-weight: 600; }
-h3 { font-size: 0.9rem; font-weight: 600; }
-p  { line-height: 1.6; }
-
-/* ─── LAYOUT ─── */
-.page-wrapper {
-  max-width: 480px;
-  margin: 0 auto;
-  min-height: 100vh;
-  background: var(--bg);
-  position: relative;
-}
-
-/* ─── BUTTONS ─── */
-.btn-primary {
-  display: flex; align-items: center; justify-content: center; gap: 6px;
-  width: 100%; height: 40px;
-  background: var(--brand-dark);
-  color: #fff;
-  border: none;
-  border-radius: var(--radius);
-  font-size: 0.9rem;
-  font-weight: 600;
-  cursor: pointer;
-  font-family: 'Poppins', sans-serif;
-  transition: background 0.15s;
-  letter-spacing: 0.2px;
-}
-.btn-primary:hover { background: #061422; }
-
-/* ─── FORM FIELDS ─── */
-.field { margin-bottom: 12px; }
-.field label {
-  display: block;
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: var(--text2);
-  margin-bottom: 4px;
-}
-.field input,
-.field select,
-.field textarea {
-  width: 100%;
-  padding: 0 11px;
-  height: 38px;
-  border: 1px solid var(--border2);
-  border-radius: var(--radius);
-  font-size: 0.85rem;
-  color: var(--text);
-  background: var(--white);
-  outline: none;
-  transition: border-color 0.15s;
-  font-family: 'Poppins', sans-serif;
-}
-.field input:focus,
-.field select:focus,
-.field textarea:focus { border-color: var(--brand); }
-.field textarea { height: auto; padding: 10px 11px; resize: vertical; }
-
-/* ─── BADGE ─── */
-.badge {
-  display: inline-block;
-  font-size: 0.68rem;
-  font-weight: 600;
-  padding: 2px 8px;
-  border-radius: 20px;
-}
-.badge-new    { background: var(--brand-light);  color: var(--brand);  }
-.badge-good   { background: var(--green-light);  color: var(--green);  }
-.badge-fair   { background: var(--amber-light);  color: var(--amber);  }
-.badge-parts  { background: var(--red-light);    color: var(--red);    }
-
-/* ─── LOADING ─── */
-.loading-screen {
-  min-height: 100vh;
-  display: flex; align-items: center; justify-content: center;
-  background: var(--bg);
-}
-.spinner {
-  width: 26px; height: 26px;
-  border: 3px solid var(--border);
-  border-top-color: var(--brand);
-  border-radius: 50%;
-  animation: spin 0.7s linear infinite;
-}
-@keyframes spin { to { transform: rotate(360deg); } }
-
-/* ─── SPACING ─── */
-.page-content { padding-bottom: 72px; }
-.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* ─── SCROLLBAR ─── */
-::-webkit-scrollbar { width: 3px; height: 3px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: var(--brand-border); }
